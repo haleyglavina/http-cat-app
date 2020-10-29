@@ -38,10 +38,20 @@
     }
   }
 
+  &__thanks {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
   &__score {
     font-weight: bold;
     font-size: 1.5rem;
     text-align: center;
     width: 100%;
   }
+}
+
+.code {
+  margin: 2rem 0 0 27vw;
 }

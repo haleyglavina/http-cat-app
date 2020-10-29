@@ -12,26 +12,10 @@ export class CurrentCodeComponent implements OnInit {
   usedCodes = [];
   currCode = null;
   score = 0;
+  attempts = 0;
   img = null;
 
-  answers = [
-    {
-      phrase: 'Missing Content',
-      correct: false
-    },
-    {
-      phrase: 'Not Found',
-      correct: true
-    },
-    {
-      phrase: 'Teapot',
-      correct: false
-    },
-    {
-      phrase: 'Success',
-      correct: false
-    }
-  ];
+  answers = [];
 
   constructor() {}
 
@@ -39,6 +23,15 @@ export class CurrentCodeComponent implements OnInit {
     // Get a status code that hasn't been used in the game yet
     // Updates image and answers on page
     this.getNewCode();
+  }
+
+  // Click handler that checks if answer is correct
+  checkAnswer(isCorrect) {
+    this.attempts++;
+
+    if (isCorrect)
+      this.score++;
+      this.getNewCode();
   }
 
   // Functions used to implement game logic
@@ -80,18 +73,15 @@ export class CurrentCodeComponent implements OnInit {
     // Place wrong answers
     for (let i=0; i<4; i++) {
       console.log("i:", i);
-      //console.log("Answers:", this.answers);
 
       while(true) {
         // If this index in answers[] already has correct answer object, skip this index
-        if (this.answers[i]) {
-          console.log("Trying to put into correct answer: ", this.answers);
+        if (this.answers[i])
           break;
-        }
 
         index = Math.floor(Math.random() * Math.floor(this.allCodes.length));
 
-        // If this status code hasn't been used in the game yet
+        // If this status code isn't being used in answers[] yet, add it to answers[]
         if (!answerCodes.includes(this.allCodes[index].number)) {
           answerCodes.push(this.allCodes[index].number);
           this.answers[i] = {
@@ -102,7 +92,6 @@ export class CurrentCodeComponent implements OnInit {
         }
       }
     }
-    console.log("FINAL this.answers:", this.answers)
   }
 
 }

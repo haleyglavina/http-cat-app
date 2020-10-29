@@ -4,11 +4,15 @@
   </div>
 
   <div class="main__answer-column">
-    <div class="main__answers">
+    <div *ngIf="attempts<10" class="main__answers">
       <div *ngFor="let answer of answers" class="main__answer">
-        <div>{{answer.phrase}}</div>
+        <div (click)="checkAnswer(answer.correct)">{{answer.phrase}}</div>
       </div>
+    </div>
+    <div *ngIf="attempts==10" class="main__thanks">
+      <h2>Thanks for playing!</h2>
     </div>
     <p class="main__score">Score: {{score}}/10</p>
   </div>
 </main>
+<h2 class="code">Code: {{this.usedCodes[this.attempts]}}</h2>
