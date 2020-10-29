@@ -2,10 +2,16 @@
   display: flex;
   justify-content: space-evenly;
 
-  &__img {
-    height: 500px;
-    width: 700px;
+  &__img-container {
+    height: 471px;
+    width: 701px;
     background-color: #666;
+    overflow: hidden;
+  }
+
+  &__img {
+    height: 686px;
+    object-position: -78px -50px;
   }
 
   &__answer-column {
