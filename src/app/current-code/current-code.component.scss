@@ -1,0 +1,41 @@
+.main {
+  display: flex;
+  justify-content: space-evenly;
+
+  &__img {
+    height: 500px;
+    width: 700px;
+    background-color: #666;
+  }
+
+  &__answer-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__answers {
+    width: 400px;
+  }
+
+  &__answer {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #666;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+
+    &:hover {
+      background-color: black;
+    }
+  }
+
+  &__score {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+}

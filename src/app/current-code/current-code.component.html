@@ -1,0 +1,12 @@
+<main class="main">
+  <div class="main__img"></div>
+
+  <div class="main__answer-column">
+    <div class="main__answers">
+      <div *ngFor="let answer of answers" class="main__answer">
+        <div>{{answer.phrase}}</div>
+      </div>
+    </div>
+    <p class="main__score">Score: {{score}}/10</p>
+  </div>
+</main>
